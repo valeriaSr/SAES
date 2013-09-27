@@ -1,0 +1,30 @@
+
+{% extends 'profesor/base.html' %}
+
+{% block archivos_css  %}
+
+	
+{% endblock %}
+
+{%  block contenido %}
+			
+				<h1>Calificaciones</h1></br>
+					<h2>Grupos</h2></br>
+				
+				<center>
+			<Form>
+				<P>Elija el grupo a evaluar
+				<select>
+					<option value ="2CM4">2CM4</option>
+					<option value ="2CM6">2CM6</option>
+					<option value ="2CM9" selected>2CM9</option>
+					<option value ="3CM7">3CM7</option>
+				</select>
+
+				
+				<a href="/profesor_ingresa_calificacion"><input type="button"/><a/>
+
+			</Form>
+		</center>
+		
+{% endblock %}
