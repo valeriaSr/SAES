@@ -28,7 +28,7 @@ class Alumno(models.Model):
 
 class AlumnoTomaEts(models.Model):
     boleta = models.ForeignKey(Alumno, db_column='boleta')
-    cve_materia_ets = models.ForeignKey('Ets', db_column='cve_materia_ets',related_name='materia_ets_alumno')
+    cve_materia_ets = models.ForeignKey('Ets', db_column='cve_materia_ets')
     etsturno = models.ForeignKey('Ets', db_column='etsturno')
     calificacion = models.IntegerField(null=True, blank=True)
     class Meta:
@@ -75,7 +75,7 @@ class Ets(models.Model):
         db_table = 'ets'
 
 class EtsAplicarseEnSalon(models.Model):
-    cve_materia_ets = models.ForeignKey(Ets, db_column='cve_materia_ets',related_name='materia_ets_salon')
+    cve_materia_ets = models.ForeignKey(Ets, db_column='cve_materia_ets')
     etsturno = models.ForeignKey(Ets, db_column='etsturno')
     cve_salon = models.ForeignKey('Salon', db_column='cve_salon')
     class Meta:
@@ -103,8 +103,8 @@ class Materia(models.Model):
     nivel = models.IntegerField(null=True, blank=True)
     coordinador = models.ForeignKey('Profesor', db_column='coordinador')
     depto = models.ForeignKey(Depto, db_column='depto')
-    materia_antecedente = models.ForeignKey('self', null=True, db_column='materia_antecedente', blank=True,related_name='materia_materia_antecedente')
-    materia_siguiente = models.ForeignKey('self', null=True, db_column='materia_siguiente', blank=True,related_name='materia_materia_siguiente')
+    materia_antecedente = models.ForeignKey(''self'', null=True, db_column='materia_antecedente', blank=True)
+    materia_siguiente = models.ForeignKey(''self'', null=True, db_column='materia_siguiente', blank=True)
     class Meta:
         db_table = 'materia'
 
